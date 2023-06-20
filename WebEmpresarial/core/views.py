@@ -1,24 +1,18 @@
 from django.shortcuts import render, HttpResponse
+from django.views.generic.base import TemplateView
+
 
 # Create your views here.
 
-def inicio(request):
-    return HttpResponse('Pagina de Inicio')
+class inicioPageView(TemplateView):
+    template_name = 'core/inicio.html'
 
-def historia(request):
-    return HttpResponse('Pagina de Historia')
+class AboutPageView(TemplateView):
+    template_name = 'core/about.html'
 
-def servicios(request):
-    return HttpResponse('Pagina de Servicios')
+class StorePageView(TemplateView):
+    template_name = 'core/store.html'
 
-def visitanos(request):
-    return HttpResponse('Pagina de Store')
 
-def contacto(request):
-    return HttpResponse('Pagina de Contacto')
 
-def blog(request):
-    return HttpResponse('Pagina de Blog')
 
-def prueba(request):
-    return HttpResponse('Pagina de Prueba')

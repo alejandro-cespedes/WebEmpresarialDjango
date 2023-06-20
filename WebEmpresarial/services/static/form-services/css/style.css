@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+:root{
+    --font: 'Inter', sans-serif;
+    --contact-columns:  repeat(8,1fr);
+    --contact-rows: 1fr;
+    --clip: polygon(35% 0, 100% 0%, 100% 100%, 0% 100%);
+    --color-primary: #5050f0;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+.contact{
+    display: grid;
+    min-height: 600px;
+    height: 100vh;
+    grid-template-columns: var(--contact-columns);
+    grid-template-rows: var(--contact-rows);
+    align-items: center;
+}
+
+.contact::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    clip-path: polygon(65% 0, 100% 0%, 100% 100%, 50% 100%);
+    background-color: var(--color-primary);
+    z-index: -1;
+}
+.contact__picture{
+    grid-column: 5/ -1;
+    grid-row: 1/-1;
+}
+
+.contact__img{
+    width: 100%;
+}
+
+.contact__form {
+    display: flex;
+    grid-column: 1 /5;
+    flex-direction: column;
+    /* height: 100%; */
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.contact__title{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.contact__title::after{
+    content: "";
+    display: block;
+    background: var(--color-primary);
+    height: 5px;
+    width: 20%;
+    margin-top: 10px;
+}
+.contact__input{
+    margin: 10px 0;
+    padding: 15px 5px;
+}
+.contact__input--area{
+    padding-bottom: 80px;
+    resize: none;
+
+}
+.contact__cta{
+    display: block;
+    background: var(--color-primary);
+    text-decoration: none;
+    color: #fff;
+    padding: 15px;
+    width: 150px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+@media screen and (max-width:767px) {
+    :root{
+        --contact-columns:  1fr;
+        --contact-rows: max-content 1fr;
+    }
+    .contact::before{
+        background-color: #fff;
+    }
+    .contact__picture{
+        grid-column: 5/ -1;
+        grid-row: 1/-1;
+        width: 100%;
+        margin: 0;
+        
+    }
+    .contact__picture::before{
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip-path: polygon(0 0, 0 100%, 100% 0);
+        background: #5050f0;
+        z-index: -1;
+    }
+    
+    .contact__img{
+        width: 100%;
+    }
+    .contact__picture{
+        grid-column: 1/ -1;
+        grid-row: 1 / 2;
+        justify-content: center;
+    }
+    .contact__form{
+        grid-row: 2 / -1;
+        width: 90%;
+    }
+
+}
+
